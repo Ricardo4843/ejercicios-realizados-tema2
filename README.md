@@ -18,6 +18,7 @@ Proyecto de Eclipse. Cada ejercicio es una clase con su propio `main` que lo pru
 | 2.8. Invertir una lista enlazada | `Ejercicio8InvertirLista` |
 | 2.9. ¿Tengo el cambio justo? | `Ejercicio9Cambio` |
 | 2.10. Fusión de listas ordenadas | `Ejercicio10FusionListas` |
+| 2.11. Asalto con más tocados (repaso, propio): máximo de un array, recursivo. n llamadas, O(n) | `Ejercicio11Maximo` |
 
 Clases de apoyo: `Archivo`, `Carpeta`, `Empleado`, `Habilidad`, `ElementoHTML`, `Pieza`, `Nodo`, `NodoLista`.
 
