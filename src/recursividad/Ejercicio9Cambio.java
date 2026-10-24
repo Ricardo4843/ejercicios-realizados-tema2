@@ -7,34 +7,30 @@ import java.util.Arrays;
  */
 public class Ejercicio9Cambio {
 
-    private static final int[] VALORES = {1, 2, 5};
-
     public static int contarFormasCambio(int objetivo, int[] monedas) {
         if (objetivo == 0) {
             return 1;
-        }
-        if (objetivo < 0 || monedas == null || monedas.length < VALORES.length) {
+        } else if (objetivo < 0) {
+            return 0;
+        } else if (monedas[0] == 0 && monedas[1] == 0 && monedas[2] == 0) {
             return 0;
         }
-        // Tipo de moneda más grande que todavía queda
-        int tipo = -1;
-        for (int i = 0; i < VALORES.length; i++) {
-            if (monedas[i] > 0) {
+        int tipo = 0;
+        int[] valores = {1, 2, 5};
+        for (int i = 0; i < monedas.length; i++) {
+            if (monedas[i] != 0) {
                 tipo = i;
             }
         }
-        if (tipo == -1) {
-            return 0;
-        }
-        // Formas usando una moneda de ese tipo
-        monedas[tipo]--;
-        int usando = contarFormasCambio(objetivo - VALORES[tipo], monedas);
-        monedas[tipo]++;
-        // Formas sin usar ninguna más de ese tipo
-        int[] sinEseTipo = monedas.clone();
-        sinEseTipo[tipo] = 0;
-        int sinUsar = contarFormasCambio(objetivo, sinEseTipo);
-        return usando + sinUsar;
+        int[] usando = {monedas[0], monedas[1], monedas[2]};
+        usando[tipo] -= 1;
+        int formasUsando = contarFormasCambio(objetivo - valores[tipo], usando);
+
+        int[] cerrando = {monedas[0], monedas[1], monedas[2]};
+        cerrando[tipo] = 0;
+        int formasCerrando = contarFormasCambio(objetivo, cerrando);
+
+        return formasUsando + formasCerrando;
     }
 
     public static void main(String[] args) {

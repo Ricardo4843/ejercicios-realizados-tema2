@@ -6,17 +6,14 @@ package recursividad;
 public class Ejercicio4ContarEtiquetas {
 
     public static int contarEtiquetas(ElementoHTML elemento, String tagBuscado) {
-        if (elemento == null || tagBuscado == null) {
-            return 0;
+        int encontrado = 0;
+        if (elemento.getTag().compareTo(tagBuscado) == 0) {
+            encontrado++;
         }
-        int veces = 0;
-        if (tagBuscado.equals(elemento.getTag())) {
-            veces = 1;
+        for (ElementoHTML e : elemento.getHijos()) {
+            encontrado += contarEtiquetas(e, tagBuscado);
         }
-        for (ElementoHTML hijo : elemento.getHijos()) {
-            veces += contarEtiquetas(hijo, tagBuscado);
-        }
-        return veces;
+        return encontrado;
     }
 
     public static void main(String[] args) {

@@ -6,17 +6,15 @@ package recursividad;
 public class Ejercicio1PesoCarpeta {
 
     public static double calcularPesoTotal(Carpeta inicio) {
-        if (inicio == null) {
-            return 0;
+        double peso = 0;
+        for (Archivo arch : inicio.getArchivos()) {
+            peso += arch.getPesoMB();
         }
-        double total = 0;
-        for (Archivo a : inicio.getArchivos()) {
-            total += a.getPesoMB();
+        for (Carpeta car : inicio.getSubcarpetas()) {
+            double p = calcularPesoTotal(car);
+            peso += p;
         }
-        for (Carpeta c : inicio.getSubcarpetas()) {
-            total += calcularPesoTotal(c);
-        }
-        return total;
+        return peso;
     }
 
     public static void main(String[] args) {
@@ -33,6 +31,5 @@ public class Ejercicio1PesoCarpeta {
 
         System.out.println("Peso total: " + calcularPesoTotal(raiz) + " MB (esperado 126.5)");
         System.out.println("Carpeta vacia: " + calcularPesoTotal(new Carpeta("x")) + " MB");
-        System.out.println("null: " + calcularPesoTotal(null) + " MB");
     }
 }

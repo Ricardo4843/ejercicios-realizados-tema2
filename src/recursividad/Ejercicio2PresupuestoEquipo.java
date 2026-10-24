@@ -6,14 +6,11 @@ package recursividad;
 public class Ejercicio2PresupuestoEquipo {
 
     public static double presupuestoEquipo(Empleado jefe) {
-        if (jefe == null) {
-            return 0;
+        double dinero = jefe.getSalario();
+        for (Empleado sub : jefe.getSubordinados()) {
+            dinero += presupuestoEquipo(sub);
         }
-        double total = jefe.getSalario();
-        for (Empleado e : jefe.getSubordinados()) {
-            total += presupuestoEquipo(e);
-        }
-        return total;
+        return dinero;
     }
 
     public static void main(String[] args) {

@@ -6,14 +6,11 @@ package recursividad;
 public class Ejercicio3CosteRama {
 
     public static int costeRamaCompleta(Habilidad raiz) {
-        if (raiz == null) {
-            return 0;
+        int coste = raiz.getCoste();
+        for (Habilidad a : raiz.getDesbloqueables()) {
+            coste += costeRamaCompleta(a);
         }
-        int total = raiz.getCoste();
-        for (Habilidad h : raiz.getDesbloqueables()) {
-            total += costeRamaCompleta(h);
-        }
-        return total;
+        return coste;
     }
 
     public static void main(String[] args) {

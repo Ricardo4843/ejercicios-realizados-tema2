@@ -6,16 +6,17 @@ package recursividad;
 public class Ejercicio6Palindromo {
 
     public static boolean esPalindromo(String texto) {
-        if (texto == null) {
-            return false;
-        }
-        if (texto.length() <= 1) {
+        if (texto.length() < 2) {
             return true;
         }
         if (texto.charAt(0) != texto.charAt(texto.length() - 1)) {
             return false;
         }
-        return esPalindromo(texto.substring(1, texto.length() - 1));
+        String m = texto.substring(1, texto.length() - 1);
+        boolean z = esPalindromo(m);
+        if (!z)
+            return false;
+        return z;
     }
 
     public static void main(String[] args) {

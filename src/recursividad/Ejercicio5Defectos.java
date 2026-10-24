@@ -6,14 +6,13 @@ package recursividad;
 public class Ejercicio5Defectos {
 
     public static boolean contieneDefectos(Pieza piezaPrincipal) {
-        if (piezaPrincipal == null) {
-            return false;
-        }
+        boolean fallo = false;
         if (piezaPrincipal.isDefectuosa()) {
             return true;
         }
         for (Pieza p : piezaPrincipal.getComponentes()) {
-            if (contieneDefectos(p)) {
+            fallo = contieneDefectos(p);
+            if (fallo) {
                 return true;
             }
         }

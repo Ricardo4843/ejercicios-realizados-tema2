@@ -6,13 +6,15 @@ package recursividad;
 public class Ejercicio11Maximo {
 
     static int maximo(int[] t, int i) {
-        if (i == t.length - 1)
+        if (i == t.length - 1) {
             return t[i];
-        int valor = maximo(t, i + 1);
-        int valorMax = valor;
-        if (t[i] > valor)
-            valorMax = t[i];
-        return valorMax;
+        }
+        int maxResto = maximo(t, i + 1);
+        if (t[i] > maxResto) {
+            return t[i];
+        } else {
+            return maxResto;
+        }
     }
 
     public static void main(String[] args) {
