@@ -10,15 +10,12 @@ public class Ejercicio7ValidarBST {
     }
 
     private static boolean esBSTAux(Nodo nodo, Nodo min, Nodo max) {
-        if (nodo == null) {
+        if (nodo == null)
             return true;
-        }
-        if (min != null && nodo.valor <= min.valor) {
+        if (min != null && nodo.valor <= min.valor)
             return false;
-        }
-        if (max != null && nodo.valor >= max.valor) {
+        if (max != null && nodo.valor >= max.valor)
             return false;
-        }
         return esBSTAux(nodo.izq, min, nodo) && esBSTAux(nodo.der, nodo, max);
     }
 
