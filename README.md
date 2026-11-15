@@ -38,6 +38,9 @@ Cada clase ejecuta el código del enunciado con un contador para comprobar las r
 | 3.8. Método misterioso (II) | `Ejercicio8MetodoMisterioso` | Calcula la altura del árbol |
 | 3.9. Árbol binario degenerado | `Ejercicio9ArbolDegenerado` | Peor caso O(n) (es como una lista); mejor caso O(1) (está en la raíz) |
 | 3.10. Complejidad de método recursivo | `Ejercicio10MetodoRaro` | n=3: 15 llamadas (2^(n+1) - 1). O(2^n) |
+| 3.11. Estimar complejidades | `Ejercicio11Complejidades` | a) N=16: 31; N + N/2 + N/4 + ... < 2N, O(N). b) N=16: 15; 1 + 2 + 4 + ... < 2N, O(N). c) N=16: 64; log N vueltas x N, O(N log N). d) N=8: 17; cada i da unas log₂ i vueltas, O(N log N) |
+| 3.12. hashCode constante | `Ejercicio12HashCode` | Compila y no da errores de ejecución: los objetos iguales dan el mismo hashCode, así que es correcto. No es bueno: todos colisionan en el mismo cajón y buscar pasa de O(1) a O(n). Con Math.random sí falla: contains no encuentra objetos iguales |
+| 3.13. Árbol binario de búsqueda | `Ejercicio13BST` | depth = altura y size = nº de nodos, O(n) (cada nodo una vez). get y put: mejor O(1), equilibrado O(log n), degenerado O(n). put con clave existente actualiza el valor; `node.left = put(...)` engancha el nodo nuevo (sin guardarlo se pierde) |
 
 ## Cómo ejecutarlo
 
