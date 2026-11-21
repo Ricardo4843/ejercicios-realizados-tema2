@@ -22,6 +22,19 @@ Proyecto de Eclipse. Cada ejercicio es una clase con su propio `main` que lo pru
 
 Clases de apoyo: `Archivo`, `Carpeta`, `Empleado`, `Habilidad`, `ElementoHTML`, `Pieza`, `Nodo`, `NodoLista`.
 
+## Árboles recursivos (`src/arboles/`)
+
+Repaso propio, tipo examen. Todo en `ArbolesRecursivos`, con su `main` de prueba.
+
+| Método | Qué hace | Complejidad |
+|---|---|---|
+| `contarNodos(Nodo n)` | Número de nodos del árbol | O(n) |
+| `sumarValores(Nodo n)` | Suma de los valores de todos los nodos | O(n) |
+| `contains(Nodo n, int valor)` | Búsqueda recursiva en un BST | O(log n) equilibrado, O(n) degenerado |
+| `getMaxReach(Node startNode)` | Cadena de segmentos más larga de un exoesqueleto | O(n) |
+
+Clases de apoyo: `Nodo`, `Node`, `Segment`.
+
 ## Complejidad (`src/complejidad/`)
 
 Cada clase ejecuta el código del enunciado con un contador para comprobar las respuestas.
